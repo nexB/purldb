@@ -99,7 +99,7 @@ class ScannableURISerializer(serializers.ModelSerializer):
 class ScannableURIViewSet(viewsets.ModelViewSet):
     queryset = ScannableURI.objects.all()
     serializer_class = ScannableURISerializer
-    permission_classes = [IsScanQueueWorkerAPIUser|IsAdminUser]
+    # permission_classes = [IsScanQueueWorkerAPIUser|IsAdminUser]
 
     @action(detail=False, methods=['get'])
     def get_next_download_url(self, request, *args, **kwargs):
@@ -203,7 +203,7 @@ class ScannableURIViewSet(viewsets.ModelViewSet):
             scan_summary_file = request.data.get('scan_summary_file')
             project_extra_data = request.data.get('project_extra_data')
             scan_data = json.load(scan_results_file)
-            summary_data = json.load(scan_summary_file)
+            summary_data = {}
             project_extra_data = json.loads(project_extra_data)
 
             scannable_uri.scan_status = ScannableURI.SCAN_COMPLETED
