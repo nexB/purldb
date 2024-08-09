@@ -13,7 +13,7 @@ from packageurl import PackageURL
 
 from minecode.route import NoRouteAvailable
 from minecode.utils_test import JsonBasedTesting
-from minecode.visitors import generic
+from minecode.miners import generic
 from packagedb.models import Package
 
 
@@ -78,7 +78,7 @@ class GenericPriorityQueueTests(JsonBasedTesting, DjangoTestCase):
             "https://web.archive.org/web/20021209021312/http://udhcp.busybox.net/source//udhcp-0.9.1.tar.gz",
             package.download_url,
         )
-    
+
     def test_process_request_fetchcode_generic(self):
         package_count = Package.objects.all().count()
         self.assertEqual(0, package_count)

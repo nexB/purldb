@@ -300,7 +300,7 @@ if DEBUG_TOOLBAR:
 
 # Active seeders: each active seeder class need to be added explicitly here
 ACTIVE_SEEDERS = [
-    'minecode.visitors.maven.MavenSeed',
+    'minecode.miners.maven.MavenSeed',
 ]
 
 SPECTACULAR_SETTINGS = {
